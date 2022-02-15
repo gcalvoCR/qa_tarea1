@@ -74,7 +74,7 @@ public class App
 
             default:
                 out.println("************************");
-                out.println("Opcion invalida");
+                out.println("Opción invalida");
                 out.println();
                 break;
         }
@@ -90,6 +90,7 @@ public class App
 
             if (Validador.validarLectura(lectura)){
                 String resultado = help.esBisiesto(Integer.parseInt(lectura));
+                out.printf("El dato ingresado fue: %s. ", lectura);
                 out.println(resultado);
             } else{
                 out.println("El dato ingresado no es un número. Corrija y vuelva a intentar");
