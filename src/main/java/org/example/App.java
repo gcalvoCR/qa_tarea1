@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.objetos.Anho;
+import org.example.objetos.Calculo;
 import org.example.objetos.Validador;
 
 import java.io.BufferedReader;
@@ -23,6 +23,16 @@ public class App
             opc = leerOpcion();
             noSalir = ejecutarAccion(opc);
         } while (noSalir);
+        imprimirIntegrantes();
+    }
+
+    static void imprimirIntegrantes(){
+        out.println("Desarrollado por:");
+        out.println("Gabriel Calvo Vargas");
+        out.println("Manuel Alvarado Solis");
+        out.println("");
+        out.println("Curso BISOFT-32 Calidad, Verificación y Validación de Software ST04");
+        out.println("**********************************");
 
     }
 
@@ -33,7 +43,7 @@ public class App
         out.print("Seleccione su opción: ");
         String lectura = in.readLine();
 
-        if (Validador.validarEsNumero(lectura)) {
+        if (Validador.validarEsNumeroEntero(lectura)) {
             opcion = Integer.parseInt(lectura);
         } else{
             opcion = -1;
@@ -84,11 +94,11 @@ public class App
     public static void procesarAnho(){
 
         try {
-            Anho help = new Anho();
+            Calculo help = new Calculo();
             out.println("Ingrese el año:");
             String lectura = in.readLine();
 
-            if (Validador.validarEsNumero(lectura)){
+            if (Validador.validarEsNumeroEntero(lectura)){
                 boolean esBisiesto = help.esBisiesto(Integer.parseInt(lectura));
                 out.printf("El dato ingresado fue: %s. ", lectura);
                 if(esBisiesto){

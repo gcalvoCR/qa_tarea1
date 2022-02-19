@@ -3,7 +3,6 @@ package org.example;
 
 
 
-import org.example.objetos.Anho;
 import org.example.objetos.Validador;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -36,13 +35,25 @@ public class ValidadorTest
     @Test
     public void validarEntradaNoNumerica()
     {
-        Assert.assertFalse(Validador.validarEsNumero(texto), "Este metodo debió de devolver 'false' para la letra "+texto);
+        Assert.assertFalse(Validador.validarEsNumeroEntero(texto), "Este método debió de devolver 'false' para la letra "+texto);
+    }
+
+    @Test
+    public void validarEntradaDecimales()
+    {
+        Assert.assertFalse(Validador.validarEsNumeroEntero(texto+".2"), "Este método debió de devolver 'false' para la el numero decimal "+texto+".2");
+    }
+
+    @Test
+    public void validarEntradaNumerosNegativo()
+    {
+        Assert.assertTrue(Validador.validarEsNumeroEntero("-"+texto), "Este método debió de devolver 'true' para la el número negativo -"+texto);
     }
 
     @Test
     public void validarEntradaNumerica()
     {
-        Assert.assertTrue(Validador.validarEsNumero(numero), "Este metodo debió de devolver 'false' para la letra "+numero);
+        Assert.assertTrue(Validador.validarEsNumeroEntero(numero), "Este metodo debió de devolver 'false' para la letra "+numero);
     }
 
 }

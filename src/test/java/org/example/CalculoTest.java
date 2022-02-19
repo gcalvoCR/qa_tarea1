@@ -1,15 +1,15 @@
 package org.example;
 
-import org.example.objetos.Anho;
+import org.example.objetos.Calculo;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
 /**
- * Unit test para Anho.
+ * Unit test para Calculo.
  */
-public class AnhoTest
+public class CalculoTest
 {
 
     @DataProvider(name="anhosBisiestos")
@@ -35,14 +35,14 @@ public class AnhoTest
     @Test(dataProvider="anhosBisiestos")
     public void validarEsBisiesto(int numero)
     {
-        Anho anho = new Anho();
-        Assert.assertTrue(anho.esBisiesto(numero), "Este metodo debió de devolver 'true' para el año "+numero);
+        Calculo anho = new Calculo();
+        Assert.assertTrue(anho.esBisiesto(numero), "Este método debió de devolver 'true' para el año "+numero);
     }
 
     @Test(dataProvider="anhosNoBisiestos")
     public void validarNoEsBisiesto(int numero)
     {
-        Anho anho = new Anho();
+        Calculo anho = new Calculo();
         Assert.assertFalse(anho.esBisiesto(numero), "Este metodo debió de devolver 'false' para el año "+numero);
     }
 
