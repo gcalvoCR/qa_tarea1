@@ -33,7 +33,7 @@ public class App
         out.print("Seleccione su opción: ");
         String lectura = in.readLine();
 
-        if (Validador.validarLectura(lectura)) {
+        if (Validador.validarEsNumero(lectura)) {
             opcion = Integer.parseInt(lectura);
         } else{
             opcion = -1;
@@ -88,10 +88,14 @@ public class App
             out.println("Ingrese el año:");
             String lectura = in.readLine();
 
-            if (Validador.validarLectura(lectura)){
-                String resultado = help.esBisiesto(Integer.parseInt(lectura));
+            if (Validador.validarEsNumero(lectura)){
+                boolean esBisiesto = help.esBisiesto(Integer.parseInt(lectura));
                 out.printf("El dato ingresado fue: %s. ", lectura);
-                out.println(resultado);
+                if(esBisiesto){
+                    out.println("El año es bisiesto!");
+                } else {
+                    out.println("El año no es bisiesto!");
+                }
             } else{
                 out.println("El dato ingresado no es un número. Corrija y vuelva a intentar");
             }
@@ -99,6 +103,4 @@ public class App
             out.println("Hubo un error procesando su solicitud.");
         }
     }
-
-
 }
