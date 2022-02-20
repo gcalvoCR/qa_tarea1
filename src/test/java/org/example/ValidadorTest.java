@@ -1,8 +1,6 @@
 package org.example;
 
 
-
-
 import org.example.objetos.Validador;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -14,46 +12,39 @@ import java.util.Random;
 /**
  * Unit test Anho.
  */
-public class ValidadorTest
-{
+public class ValidadorTest {
 
     String texto;
     String numero;
 
     @BeforeTest
-    public void setearCaracteres(){
+    public void setearCaracteres() {
         Random r = new Random();
 
         String alfabeto = "abcdefghijklmnñopqrstuvwxyz";
         String numeros = "0123456789";
-        for (int i = 0; i < 50; i++) {
-            texto = Character.toString(alfabeto.charAt(r.nextInt(alfabeto.length())));
-            numero = Character.toString(numeros.charAt(r.nextInt(numeros.length())));
-        }
+        texto = Character.toString(alfabeto.charAt(r.nextInt(alfabeto.length())));
+        numero = Character.toString(numeros.charAt(r.nextInt(numeros.length())));
     }
 
     @Test
-    public void validarEntradaNoNumerica()
-    {
-        Assert.assertFalse(Validador.validarEsNumeroEntero(texto), "Este método debió de devolver 'false' para la letra "+texto);
+    public void validarEntradaNoNumerica() {
+        Assert.assertFalse(Validador.validarEsNumeroEntero(texto), "Este método debió de devolver 'false' para la letra " + texto);
     }
 
     @Test
-    public void validarEntradaDecimales()
-    {
-        Assert.assertFalse(Validador.validarEsNumeroEntero(texto+".2"), "Este método debió de devolver 'false' para la el numero decimal "+texto+".2");
+    public void validarEntradaDecimales() {
+        Assert.assertFalse(Validador.validarEsNumeroEntero(texto + ".2"), "Este método debió de devolver 'false' para la el numero decimal " + texto + ".2");
     }
 
     @Test
-    public void validarEntradaNumerosNegativo()
-    {
-        Assert.assertTrue(Validador.validarEsNumeroEntero("-"+texto), "Este método debió de devolver 'true' para la el número negativo -"+texto);
+    public void validarEntradaNumerosNegativo() {
+        Assert.assertFalse(Validador.validarEsNumeroEntero("-" + numero), "Este método debió de devolver 'true' para la el número negativo -" + numero);
     }
 
     @Test
-    public void validarEntradaNumerica()
-    {
-        Assert.assertTrue(Validador.validarEsNumeroEntero(numero), "Este metodo debió de devolver 'false' para la letra "+numero);
+    public void validarEntradaNumerica() {
+        Assert.assertTrue(Validador.validarEsNumeroEntero(numero), "Este metodo debió de devolver 'false' para la letra " + numero);
     }
 
 }

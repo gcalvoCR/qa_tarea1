@@ -29,7 +29,7 @@ public class App
     static void imprimirIntegrantes(){
         out.println("Desarrollado por:");
         out.println("Gabriel Calvo Vargas");
-        out.println("Manuel Alvarado Solis");
+        out.println("Manuel Alvarado Solano");
         out.println("");
         out.println("Curso BISOFT-32 Calidad, Verificación y Validación de Software ST04");
         out.println("**********************************");
